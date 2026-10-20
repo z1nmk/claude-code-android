@@ -1,0 +1,5 @@
+#!/bin/sh
+# Sends commands to rish running in Termux via the bridge (~/rish-bridge.sh)
+if [ "$1" = "-c" ]; then shift; printf '%s\nexit $?\n' "$*" | socat -t 600 -,ignoreeof TCP:127.0.0.1:7777
+else socat - TCP:127.0.0.1:7777
+fi

@@ -1,0 +1,17 @@
+#!/bin/sh
+# Hidden virtual display via scrcpy-server run through rish.
+# Server and stream sink both run as shell (SELinux blocks app <-> shell sockets).
+# Run "start" as a long-lived background job; it lives until "stop".
+# Usage: vdisplay start [WxH/DPI] | stop | status
+SCID=1a2b3c4d; K=/data/local/tmp/keep; JAR=/data/local/tmp/scrcpy-server.jar
+case "$1" in
+start)
+  SIZE=${2:-1080x2340/450}
+  rish -c "cp $K/scrcpy-server.jar $JAR && CLASSPATH=$JAR app_process / com.genymobile.scrcpy.Server 5.0.1 scid=$SCID tunnel_forward=true audio=false control=false new_display=$SIZE max_fps=5 video_bit_rate=500000 log_level=info & sleep 2; LD_LIBRARY_PATH=$K $K/socat -u ABSTRACT-CONNECT:scrcpy_$SCID OPEN:/dev/null & wait" ;;
+stop)
+  rish -c 'pkill -f com.genymobile.scrcpy; pkill -f keep/socat'
+  echo stopped ;;
+status)
+  rish -c 'cmd display get-displays' | grep -o 'Display id [0-9]*: DisplayInfo{"[^"]*"' ;;
+*) echo "usage: vdisplay start [WxH/DPI] | stop | status" ;;
+esac

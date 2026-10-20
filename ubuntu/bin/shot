@@ -1,0 +1,3 @@
+#!/bin/sh
+# Screenshot of the phone's main screen. Usage: shot OUT.png
+rish -c 'screencap -p /sdcard/Download/.shot.png' && mv /sdcard/Download/.shot.png "${1:-shot.png}"

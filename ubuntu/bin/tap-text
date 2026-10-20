@@ -1,0 +1,3 @@
+#!/bin/sh
+# Tap an on-screen element by its text. Usage: tap-text "Settings" [display_id]
+rish -c "sh /data/local/tmp/keep/tap.sh '$1' $2"

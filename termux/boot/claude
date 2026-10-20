@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/sh
+sleep 20  # give Shizuku time to start after boot
+exec ~/claude-start.sh

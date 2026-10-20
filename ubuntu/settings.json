@@ -1,0 +1,9 @@
+{
+  "theme": "dark",
+  "sandbox": {
+    "excludedCommands": ["rish"]
+  },
+  "permissions": {
+    "allow": ["Bash(rish:*)", "Bash(vdisplay:*)", "Bash(vshot:*)", "Bash(shot:*)", "Bash(tap-text:*)"]
+  }
+}

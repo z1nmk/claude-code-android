@@ -1,0 +1,3 @@
+#!/bin/sh
+# Screenshot of the hidden scrcpy display. Usage: vshot OUT.png
+rish -c 'SF=$(dumpsys SurfaceFlinger --display-id | grep scrcpy | sed "s/Display \([0-9]*\).*/\1/"); screencap -d $SF -p /sdcard/Download/.vshot.png' && mv /sdcard/Download/.vshot.png "$1"
