@@ -75,7 +75,7 @@ install -m 700 "$DIR/termux/shortcuts/Claude" "$HOME/.shortcuts/Claude"
 install -m 700 "$DIR/termux/shortcuts/tasks/Claude-Stop" "$HOME/.shortcuts/tasks/Claude-Stop"
 ok "готово: ~/claude-start.sh, ~/claude-stop.sh, автозапуск, кнопки Claude и Claude-Stop"
 
-say "6/7 Ubuntu и Claude Code (долго: скачивается ~300 МБ)"
+say "6/7 Ubuntu и Claude Code (долго: скачивается ~500 МБ)"
 if ! proot-distro login ubuntu -- true >/dev/null 2>&1; then
   proot-distro install ubuntu </dev/null
 fi
