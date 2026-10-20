@@ -6,7 +6,9 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo "Ubuntu: пакеты..."
 apt-get update -q
-apt-get install -y -q socat curl ca-certificates git jq python3
+apt-get upgrade -y -q -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold
+# socat: rish bridge; jq: settings merge; gh: GitHub; ffmpeg: hidden-display recordings; nano: simple editor
+apt-get install -y -q socat curl wget ca-certificates git gh jq python3 unzip ffmpeg nano
 
 echo "Ubuntu: команды управления телефоном (rish, vdisplay, vshot, shot, tap-text)..."
 install -m 755 "$SRC"/ubuntu/bin/* /usr/local/bin/

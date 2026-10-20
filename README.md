@@ -110,7 +110,8 @@ Shizuku даёт Claude права для управления телефоно�
 2. Достаёт `rish` (консоль Shizuku) из установленного приложения Shizuku.
 3. Кладёт скрипты: `~/claude-start.sh`, `~/claude-stop.sh`, `~/rish-bridge.sh`, `~/phone-setup.sh`, `~/doctor.sh`,
    автозапуск `~/.termux/boot/claude`, кнопки `~/.shortcuts/Claude` и `~/.shortcuts/tasks/Claude-Stop`.
-4. Ставит Ubuntu (`proot-distro install ubuntu`), внутри — Claude Code (официальный установщик `claude.ai/install.sh`),
+4. Ставит Ubuntu (`proot-distro install ubuntu`), обновляет её (`apt-get update && apt-get upgrade`) и ставит программы
+   `socat curl wget git gh jq python3 unzip ffmpeg nano`, затем — Claude Code (официальный установщик `claude.ai/install.sh`),
    команды `rish`, `shot`, `tap-text`, `vdisplay`, `vshot` в `/usr/local/bin`, настройки `~/.claude/settings.json`
    (разрешение на `rish` без лишних вопросов) и `~/.claude/CLAUDE.md` с инструкцией для Claude, как управлять телефоном.
 5. Через Shizuku снимает фоновые ограничения Android, чтобы система не убивала Claude
